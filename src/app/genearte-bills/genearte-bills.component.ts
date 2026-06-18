@@ -150,9 +150,6 @@ async generatePdf() {
 const value = String(item.value);
 field.setText(` ${value} ${item.unit}  `);
 
-console.log('Input:', item.value);
-console.log('PDF Value:', field.getText());
-
       } catch (error) {
 
         console.log(`Field not found in PDF: ${key}`);
@@ -177,7 +174,14 @@ console.log('PDF Value:', field.getText());
 
   const url = URL.createObjectURL(blob);
 
-  window.open(url);
+// Preview
+window.open(url, '_blank');
+
+// Download
+const a = document.createElement('a');
+a.href = url;
+a.download = 'Grocery-Bill.pdf';
+a.click();
 }
 
 debugValue(key: string, value: any) {
