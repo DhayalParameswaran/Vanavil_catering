@@ -122,13 +122,7 @@ buildRequestPayload() {
 }
 
 submit(){
-
-   if (!this.hasAtLeastOneValue()) {
-  
-    return; // Stop submission
-  }else{
-    this.generatePdf();
-  }
+this.generatePdf();
  
 }
 
@@ -153,8 +147,8 @@ async generatePdf() {
         //   .setText(` ${value} ${item.unit}  `);
 
           const field = form.getTextField(key);
-
-field.setText(String(item.value));
+const value = String(item.value);
+field.setText(` ${value} ${item.unit}  `);
 
 console.log('Input:', item.value);
 console.log('PDF Value:', field.getText());
