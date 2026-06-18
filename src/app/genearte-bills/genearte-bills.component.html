@@ -1,0 +1,199 @@
+<div class="big-form">
+
+  <!-- Section 1 -->
+ <div class="form-section">
+  <h3>பிரியாணி பொருட்கள்</h3>
+
+  <div class="form-grid">
+    <div class="form-row" *ngFor="let item of biriyaniItems">
+      <label>{{ item.label }}</label>
+
+      <div class="value-row">
+        <input
+          type="number"
+          [(ngModel)]="formdata[item.key].value"
+            (wheel)="disableScroll($event)"
+        />
+
+        <select
+          [(ngModel)]="formdata[item.key].unit"
+          [disabled]="item.disabled ?? false"
+        >
+          <option
+            *ngFor="let unit of item.unitOptions"
+            [value]="unit"
+          >
+            {{ unit }}
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Section 2 -->
+  <div class="form-section">
+  <h3>தனியாக வாங்க வேண்டியவை</h3>
+
+  <div class="form-grid">
+    <div class="form-row" *ngFor="let item of otherItems">
+      <label>{{ item.label }}</label>
+
+      <div class="value-row">
+        <input
+          type="number"
+          [(ngModel)]="formdata[item.key].value"
+          (wheel)="disableScroll($event)"
+        />
+
+        <select
+          [(ngModel)]="formdata[item.key].unit"
+          [disabled]="item.disabled ?? false"
+        >
+          <option
+            *ngFor="let unit of item.unitOptions"
+            [value]="unit"
+          >
+            {{ unit }}
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+
+ <div class="form-section">
+  <h3>காய்கறிகள்</h3>
+
+  <div class="form-grid">
+    <div class="form-row" *ngFor="let item of vegetableItems">
+      <label>{{ item.label }}</label>
+
+      <div class="value-row">
+        <input
+          type="number"
+          [(ngModel)]="formdata[item.key].value"
+          (wheel)="disableScroll($event)"
+        />
+
+        <select
+          [(ngModel)]="formdata[item.key].unit"
+          [disabled]="item.disabled ?? false"
+        >
+          <option
+            *ngFor="let unit of item.unitOptions"
+            [value]="unit"
+          >
+            {{ unit }}
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+ <div class="form-section">
+  <h3>பழம் வகைகள்</h3>
+
+  <div class="form-grid">
+    <div class="form-row" *ngFor="let item of fruitItems">
+      <label>{{ item.label }}</label>
+
+      <div class="value-row">
+        <input
+          type="number"
+          [(ngModel)]="formdata[item.key].value"
+          (wheel)="disableScroll($event)"
+        />
+
+        <select
+          [(ngModel)]="formdata[item.key].unit"
+        >
+          <option
+            *ngFor="let unit of item.unitOptions"
+            [value]="unit"
+          >
+            {{ unit }}
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+ <div class="form-section">
+  <h3>சமையல் சாமான்கள்</h3>
+
+  <div class="form-grid">
+    <div class="form-row" *ngFor="let item of cookingItems">
+      <label>{{ item.label }}</label>
+
+      <div class="value-row">
+        <input
+          type="number"
+          [(ngModel)]="formdata[item.key].value"
+          (wheel)="disableScroll($event)"
+        />
+
+        <select disabled>
+          <option>{{ item.unitOptions?.[0] }}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="form-section">
+        <h3> அறைக்க வேண்டியவை </h3>
+        <div class="form-grid">
+          <div class="form-row">
+            <label>
+              இஞ்சி, </label>
+            <select>
+              <option value="No">No</option>
+              <option selected value="Yes">Yes</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label>
+              பூண்டு </label>
+            <select>
+              <option value="No">No</option>
+              <option selected value="Yes">Yes</option>
+            </select>
+          </div>
+
+
+        </div>
+      </div>
+
+
+      <div class="form-section">
+        <h3>ஊறவைக்க வேண்டியவை</h3>
+        <div class="form-grid">
+          <div class="form-row">
+            <label>
+              பச்சை பட்டாணி.</label>
+            <select>
+              <option selected value="No">No</option>
+              <option value="Yes">Yes</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label>
+              டபுல் பீன்ஸ்.</label>
+            <select>
+              <option selected value="No">No</option>
+              <option value="Yes">Yes</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="action-bar">
+  <button class="btn-submit" (click)="submit()">Generate Pdf</button>
+</div>
+</div>

@@ -1,0 +1,108 @@
+/* Full screen centering */
+.login-wrapper {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(
+    135deg,
+    #0f172a,
+    #4f46e5,
+    #9333ea
+  );
+
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+/* Login card */
+.login-box {
+  width: 100%;
+  max-width: 380px;
+  padding: 32px 28px;
+
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+}
+
+/* Title */
+.login-box h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* Inputs */
+.login-box input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 16px;
+
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  font-size: 15px;
+}
+
+/* Button */
+.login-box button {
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+
+  border: none;
+  cursor: pointer;
+
+  background: linear-gradient(135deg, #4f46e5, #9333ea);
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+/* Hover effect */
+.login-box button:hover {
+  opacity: 0.95;
+}
+
+.login-box button {
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #4f46e5, #9333ea);
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 0.3s ease; /* Smooth fade between states */
+}
+
+/* Hover effect: Only trigger if NOT disabled */
+.login-box button:hover:not(:disabled) {
+  opacity: 0.85;
+  transform: translateY(-1px); /* Slight lift effect */
+}
+
+/* ❌ The Disabled State */
+.login-box button:disabled {
+  background: #cbd5e1;       /* Flat grey color (Tailwind Slate-300) */
+  color: #64748b;            /* Muted text color */
+  cursor: not-allowed;       /* Change cursor */
+  opacity: 1;                /* Ensure it doesn't look too transparent */
+  box-shadow: none;          /* Remove any shadows */
+}
+
+/* 📱 Mobile */
+@media (max-width: 480px) {
+  .login-box {
+    padding: 24px 20px;
+  }
+
+  .login-box input {
+  width: 100%;
+  padding: 8px;
+}
+}
