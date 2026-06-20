@@ -5,7 +5,9 @@ import {
   vegetableItems,
   fruitItems,
   cookingItems,
-  otherItems
+  otherItems,
+  soakingItems,
+  grindingItems
 } from './items';
 
 import { items } from './newCreatedItems';
@@ -51,6 +53,8 @@ vegetableItems: GroceryItem[] = vegetableItems;
 fruitItems: GroceryItem[] = fruitItems;
 otherItems: GroceryItem[] = otherItems;
 cookingItems: GroceryItem[] = cookingItems;
+soakingItems: GroceryItem[] = soakingItems;
+grindingItems: GroceryItem[] = grindingItems;
 
 
 formdata:any = items;
@@ -88,38 +92,6 @@ hasAtLeastOneValue(): boolean {
   return false; // All fields are empty
 }
 
-buildRequestPayload() {
-  const payload: any = {
-    biriyaniItems: {},
-    vegetableItems: {},
-    fruitItems: {},
-    cookingItems: {},
-    otherItems: {}
-  };
-
-  // Helper to populate a section
-  const populateSection = (items: any[], sectionName: string) => {
-
-      // add ID if record already exists
-    if (this.resultData?.[sectionName]?.id) {
-      payload[sectionName].id = this.resultData[sectionName].id;
-    }
-    
-    items.forEach(item => {
-      if (this.formdata[item.key]) {
-        payload[sectionName][item.key] = JSON.stringify(this.formdata[item.key]);
-      }
-    });
-  };
-
-  populateSection(this.biriyaniItems, 'biriyaniItems');
-  populateSection(this.vegetableItems, 'vegetableItems');
-  populateSection(this.fruitItems, 'fruitItems');
-  populateSection(this.cookingItems, 'cookingItems');
-  populateSection(this.otherItems, 'otherItems');
-
-  return payload;
-}
 
 submit(){
 this.generatePdf();
@@ -157,6 +129,30 @@ field.setText(` ${value} ${item.unit}  `);
       }
     }
   });
+
+  const checkboxFields = [
+    'ginger',
+    'garlic',
+    'greenPeas',
+    'doubleBeans'
+  ];
+
+  checkboxFields.forEach(fieldName => {
+    try {
+
+      const checkbox = form.getCheckBox(fieldName);
+
+      if (this.formdata[fieldName]?.value === 'Yes') {
+        checkbox.check();
+      } else {
+        checkbox.uncheck();
+      }
+
+    } catch (err) {
+      console.log(`Checkbox not found in PDF: ${fieldName}`);
+    }
+  });
+
 
   // Refresh field appearance
   form.updateFieldAppearances();

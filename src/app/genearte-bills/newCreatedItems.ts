@@ -94,7 +94,7 @@
   kerosene: { value: null, unit: 'liter' },
   bamboo_Basket: { value: null, unit: 'nos' },
   mallu_Cloth: { value: null, unit: 'nos' },
-  savukku_Kattai: { value: null, unit: 'குண்டு' },
+  savukku_Kattai: { value: null, unit: 'gundu' },
   modern_Bread_Family_Pack: { value: null, unit: 'pkt' },
   cylinder: { value: null, unit: 'nos' },
 
@@ -157,6 +157,11 @@
   tea_Drum: { value: null, unit: 'nos' },
   vadai_Ladle: { value: null, unit: 'nos' },
   filter_Basket: { value: null, unit: 'nos' },
-  coconut_Grater: { value: null, unit: 'nos' }
+  coconut_Grater: { value: null, unit: 'nos' },
+   gingerGrind: { value: 'No' },
+  garlicGrind: { value: 'No' },
+
+  greenPeasSoak: { value: 'No' },
+  doubleBeansSoak: { value: 'No' }
 
 };

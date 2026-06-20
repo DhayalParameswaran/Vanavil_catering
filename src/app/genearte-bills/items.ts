@@ -138,7 +138,7 @@ export const otherItems = [
     {
         label: 'சவுக்கு கட்டை',
         key: 'savukku_Kattai',
-        unitOptions: ['குண்டு'],
+        unitOptions: ['gundu'],
         disabled: true
     },
     {
@@ -317,4 +317,14 @@ export const cookingItems = [
     { label: 'வடை கரண்டி', key: 'vadai_Ladle', unitOptions: ['nos'], disabled: true },
     { label: 'வடி கூடை', key: 'filter_Basket', unitOptions: ['nos'], disabled: true },
     { label: 'தேங்காய் துருவி கட்டை', key: 'coconut_Grater', unitOptions: ['nos'], disabled: true }
+];
+
+export const grindingItems = [
+  { label: 'இஞ்சி', key: 'gingerGrind' },
+  { label: 'பூண்டு', key: 'garlicGrind' }
+];
+
+export const soakingItems = [
+  { label: 'பச்சை பட்டாணி', key: 'greenPeasSoak' },
+  { label: 'டபுல் பீன்ஸ்', key: 'doubleBeansSoak' }
 ];
